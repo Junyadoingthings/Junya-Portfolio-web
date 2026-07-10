@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"JUNYA" — Web Developer, Johannesburg</title>
+
+  <!-- SEO -->
+  <meta name="description" content="JUNYA — Johannesburg-based IT student and developer. Websites, hosting and monitoring for businesses. Text me, let's build something worth shipping." />
+  <meta name="author" content="Junior Mazibuko (JUNYA)" />
+  <meta name="theme-color" content="#FF6B1A" />
+
+  <!-- Open Graph (link preview card) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content='"JUNYA" — Building Things' />
+  <meta property="og:description" content="Websites, hosting & monitoring. Johannesburg-based developer. Pricing on request — tap through and text me." />
+  <meta property="og:image" content="og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@junya_tweets" />
+  <meta name="twitter:creator" content="@junya_tweets" />
+  <meta name="twitter:title" content='"JUNYA" — Building Things' />
+  <meta name="twitter:description" content="Websites, hosting & monitoring. Johannesburg-based developer." />
+  <meta name="twitter:image" content="og-image.jpg" />
+
+  <!-- Icons + PWA -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="manifest" href="manifest.json" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Analytics: sign up free at goatcounter.com with code "junya", then uncomment -->
+  <!-- <script data-goatcounter="https://junya.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
+</head>
+<body>
+
+  <!-- STARTUP SCREEN -->
+  <div id="startupScreen" aria-hidden="true">
+    <canvas id="startupCanvas"></canvas>
+
+    <!-- World SVG silhouette -->
+    <svg id="startupMap" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <!-- Simplified continent paths -->
+      <!-- North America -->
+      <path d="M 80 80 L 95 70 L 140 65 L 165 80 L 190 75 L 210 90 L 220 115 L 205 130 L 215 155 L 200 180 L 175 195 L 155 220 L 130 230 L 110 215 L 90 200 L 75 175 L 60 150 L 55 120 L 65 95 Z" fill="none" stroke="rgba(255,197,63,0.12)" stroke-width="1"/>
+      <!-- Greenland -->
+      <path d="M 180 35 L 210 30 L 235 45 L 225 65 L 195 68 L 175 55 Z" fill="none" stroke="rgba(255,197,63,0.08)" stroke-width="0.8"/>
+      <!-- Central America -->
+      <path d="M 155 220 L 165 240 L 155 255 L 145 250 L 148 235 Z" fill="none" stroke="rgba(255,197,63,0.10)" stroke-width="0.8"/>
+      <!-- South America -->
+      <path d="M 170 255 L 195 250 L 225 265 L 240 295 L 245 330 L 230 370 L 210 400 L 190 415 L 175 400 L 160 370 L 155 335 L 160 300 L 165 270 Z" fill="none" stroke="rgba(255,197,63,0.12)" stroke-width="1"/>
+      <!-- Europe -->
+      <path d="M 440 70 L 460 65 L 490 68 L 510 80 L 505 95 L 520 105 L 510 120 L 490 125 L 470 115 L 455 120 L 440 110 L 430 95 L 435 80 Z" fill="none" stroke="rgba(255,197,63,0.12)" stroke-width="1"/>
+      <!-- Scandinavia -->
+      <path d="M 460 45 L 475 35 L 490 45 L 485 60 L 470 65 L 458 58 Z" fill="none" stroke="rgba(255,197,63,0.08)" stroke-width="0.8"/>
+      <!-- UK -->
+      <path d="M 432 72 L 440 68 L 443 78 L 437 82 L 430 79 Z" fill="none" stroke="rgba(255,197,63,0.08)" stroke-width="0.8"/>
+      <!-- Africa -->
+      <path d="M 460 130 L 490 125 L 520 140 L 535 165 L 540 200 L 530 240 L 520 280 L 505 320 L 490 355 L 475 370 L 460 355 L 448 320 L 440 280 L 438 240 L 445 200 L 450 165 L 455 140 Z" fill="none" stroke="rgba(255,197,63,0.15)" stroke-width="1"/>
+      <!-- Madagascar -->
+      <path d="M 545 255 L 552 248 L 558 260 L 553 275 L 544 268 Z" fill="none" stroke="rgba(255,197,63,0.07)" stroke-width="0.7"/>
+      <!-- Middle East -->
+      <path d="M 535 115 L 560 110 L 580 120 L 575 140 L 555 148 L 535 140 Z" fill="none" stroke="rgba(255,197,63,0.10)" stroke-width="0.8"/>
+      <!-- Russia / Central Asia -->
+      <path d="M 510 55 L 570 45 L 640 50 L 700 60 L 730 75 L 720 90 L 680 85 L 640 90 L 590 85 L 550 90 L 520 85 L 508 70 Z" fill="none" stroke="rgba(255,197,63,0.10)" stroke-width="0.8"/>
+      <!-- South Asia / India -->
+      <path d="M 580 120 L 610 115 L 640 125 L 645 150 L 635 175 L 615 195 L 600 185 L 590 160 L 578 140 Z" fill="none" stroke="rgba(255,197,63,0.10)" stroke-width="1"/>
+      <!-- Southeast Asia -->
+      <path d="M 660 130 L 700 120 L 730 130 L 735 150 L 720 165 L 695 160 L 670 155 L 655 145 Z" fill="none" stroke="rgba(255,197,63,0.10)" stroke-width="0.8"/>
+      <!-- China / East Asia -->
+      <path d="M 650 80 L 710 70 L 760 80 L 780 100 L 775 125 L 750 135 L 720 130 L 690 125 L 660 130 L 645 115 L 648 95 Z" fill="none" stroke="rgba(255,197,63,0.12)" stroke-width="1"/>
+      <!-- Japan -->
+      <path d="M 785 90 L 800 85 L 808 100 L 798 112 L 785 105 Z" fill="none" stroke="rgba(255,197,63,0.08)" stroke-width="0.8"/>
+      <!-- Australia -->
+      <path d="M 730 295 L 780 280 L 830 285 L 860 310 L 860 345 L 840 370 L 800 380 L 760 370 L 730 350 L 718 325 Z" fill="none" stroke="rgba(255,197,63,0.12)" stroke-width="1"/>
+      <!-- New Zealand -->
+      <path d="M 880 345 L 890 335 L 898 345 L 892 360 L 882 355 Z" fill="none" stroke="rgba(255,197,63,0.07)" stroke-width="0.7"/>
+    </svg>
+
+    <!-- Branding -->
+    <div class="su-brand">
+      <div class="su-eyebrow">
+        <span class="su-tag">c. 2026</span>
+        <span class="su-loc">"JOHANNESBURG, ZA"</span>
+      </div>
+      <h1 class="su-name">"JUNYA"</h1>
+      <div class="su-tagline">CONNECTED TO THE WORLD</div>
+      <div class="su-annotation">GLOBAL NETWORK — LOADING</div>
+    </div>
+
+    <!-- OW corner annotations -->
+    <div class="su-corner su-corner-tl">
+      <span>001</span>
+      <span>"DEVELOPER"</span>
+    </div>
+    <div class="su-corner su-corner-tr">
+      <span>"IT STUDENT"</span>
+      <span>JHB → WORLD</span>
+    </div>
+    <div class="su-corner su-corner-bl">
+      <span>© 2026</span>
+    </div>
+    <div class="su-corner su-corner-br">
+      <span>FOR DISPLAY ONLY</span>
+    </div>
+
+    <!-- Loading bar -->
+    <div class="su-loader">
+      <div class="su-loader-track">
+        <div class="su-loader-fill" id="suLoaderFill"></div>
+      </div>
+      <span class="su-loader-label" id="suLoaderLabel">INITIALISING</span>
+    </div>
+  </div>
+
+  <canvas id="codeRain"></canvas>
+
+  <!-- Scroll progress -->
+  <div id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Command palette -->
+  <div class="cmdk" id="cmdk" aria-hidden="true">
+    <div class="cmdk-backdrop" id="cmdkBackdrop"></div>
+    <div class="cmdk-panel">
+      <div class="cmdk-head">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="cmdkInput" type="text" placeholder="Type a command or search…" autocomplete="off" />
+        <span class="cmdk-esc">ESC</span>
+      </div>
+      <ul id="cmdkList" class="cmdk-list"></ul>
+      <div class="cmdk-foot">↑↓ navigate&nbsp;&nbsp;·&nbsp;&nbsp;↵ select&nbsp;&nbsp;·&nbsp;&nbsp;esc close</div>
+    </div>
+  </div>
+
+  <!-- TOP TAPE -->
+  <div class="nav-tape" aria-hidden="true">
+    <div class="nav-tape-track">
+      <span>"JUNYA BUILDING THINGS™"&nbsp;&nbsp;✦&nbsp;&nbsp;"WEB DEVELOPMENT"&nbsp;&nbsp;✦&nbsp;&nbsp;"JOHANNESBURG, ZA"&nbsp;&nbsp;✦&nbsp;&nbsp;"EST. 2026"&nbsp;&nbsp;✦&nbsp;&nbsp;"NOT FOR RESALE"&nbsp;&nbsp;✦&nbsp;&nbsp;"JUNYA BUILDING THINGS™"&nbsp;&nbsp;✦&nbsp;&nbsp;"WEB DEVELOPMENT"&nbsp;&nbsp;✦&nbsp;&nbsp;"JOHANNESBURG, ZA"&nbsp;&nbsp;✦&nbsp;&nbsp;"EST. 2026"&nbsp;&nbsp;✦&nbsp;&nbsp;"NOT FOR RESALE"&nbsp;&nbsp;✦&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="logo-lockup" aria-label="JUNYA — home">
+      <span class="logo-word">
+        <span class="logo-word-main">"JUNYA"<sup class="logo-tm">™</sup></span>
+        <span class="logo-word-sub">BUILDING THINGS — JHB</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about"><i>01</i> "ABOUT"</a></li>
+      <li><a href="#skills"><i>02</i> "SKILLS"</a></li>
+      <li><a href="#projects"><i>03</i> "PROJECTS"</a></li>
+      <li><a href="#services"><i>04</i> "SERVICES"</a></li>
+      <li><a href="#contact"><i>05</i> "CONTACT"</a></li>
+    </ul>
+    <button class="nav-cmdk" id="cmdkHint" aria-label="Open command palette" title="Command palette (Ctrl+K)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>CTRL K</span>
+    </button>
+    <button class="nav-theme" id="themeToggle" aria-label="Toggle dark mode">
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <a href="https://x.com/junya_tweets" target="_blank" rel="noopener" class="nav-x" aria-label="X (Twitter)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/junyaa._/" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://github.com/Junyadoingthings" target="_blank" rel="noopener" class="nav-gh" aria-label="GitHub">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.4.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+    </a>
+    <div class="nav-badge">
+      <span class="pulse-ring"></span>
+      <span class="pulse-dot"></span>
+      open to work
+    </div>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="menuClose">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <ul>
+      <li><a href="#about" class="mobile-link">about</a></li>
+      <li><a href="#skills" class="mobile-link">skills</a></li>
+      <li><a href="#projects" class="mobile-link">projects</a></li>
+      <li><a href="#services" class="mobile-link">services</a></li>
+      <li><a href="#contact" class="mobile-link">contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="ow-tag">c. 2026</span>
+        <span class="ow-loc">"JOHANNESBURG"</span>
+      </div>
+      <h1 class="hero-name">
+        <span class="name-line name-quoted">"JUNYA"</span>
+      </h1>
+      <div class="ow-label-row">
+        <span class="ow-label">"IT STUDENT"</span>
+        <span class="ow-dash">—</span>
+        <span class="ow-label">"DEVELOPER"</span>
+      </div>
+      <p class="hero-role" id="typewriter"></p>
+      <p class="hero-bio">
+        IT student. Problem solver. Builder of things that matter.
+        I write clean code, think in systems, and ship real work.
+      </p>
+      <div class="ow-annotation">FOR DISPLAY ONLY — JHB, ZA</div>
+      <div class="hero-actions">
+        <a href="#projects" class="cta-primary">
+          See my work
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="https://github.com/Junyadoingthings" target="_blank" rel="noopener" class="cta-github">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.4.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.instagram.com/junyaa._/" target="_blank" rel="noopener" class="cta-instagram">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none"/></svg>
+          Instagram
+          <span class="cta-ig-beam"></span>
+        </a>
+        <a href="https://x.com/junya_tweets" target="_blank" rel="noopener" class="cta-x" aria-label="X (Twitter)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></svg>
+        </a>
+        <a href="#contact" class="cta-ghost">Get in touch</a>
+      </div>
+
+      <div class="hero-scroll-hint">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        scroll
+      </div>
+    </div>
+
+    <div class="hero-right">
+
+      <!-- Thermal ID face stamp -->
+      <div class="face-stamp" aria-hidden="true">
+        <div class="fs-frame">
+          <img src="assets/junya-face.jpg" alt="" onerror="this.closest('.face-stamp').style.display='none'" />
+          <div class="fs-tint"></div>
+          <div class="fs-scanlines"></div>
+          <div class="fs-scanbeam"></div>
+          <span class="fs-bracket fs-tl"></span>
+          <span class="fs-bracket fs-tr"></span>
+          <span class="fs-bracket fs-bl"></span>
+          <span class="fs-bracket fs-br"></span>
+          <div class="fs-readout">
+            <span>▮ SCAN OK</span>
+            <span>36.7°C</span>
+          </div>
+        </div>
+        <div class="fs-label">
+          <span class="fs-label-id">SUBJ · "JUNYA"</span>
+          <span class="fs-label-code">THERMAL ID — 001</span>
+        </div>
+        <div class="fs-barcode"></div>
+      </div>
+
+      <div class="hero-code-card">
+        <div class="hcc-bar">
+          <span class="hcc-dot r"></span><span class="hcc-dot y"></span><span class="hcc-dot g"></span>
+          <span class="hcc-filename">junior.java</span>
+        </div>
+        <pre class="hcc-body"><code><span class="c-kw">public class</span> <span class="c-cl">Junior</span> {
+
+  <span class="c-kw">String</span>  location  = <span class="c-s">"Johannesburg"</span>;
+  <span class="c-kw">String</span>  role      = <span class="c-s">"IT Student"</span>;
+  <span class="c-kw">boolean</span> open      = <span class="c-v">true</span>;
+
+  <span class="c-kw">String[]</span> stack = {
+    <span class="c-s">"Java"</span>, <span class="c-s">"JavaScript"</span>,
+    <span class="c-s">"Python"</span>, <span class="c-s">"HTML/CSS"</span>
+  };
+
+  <span class="c-kw">void</span> <span class="c-fn">run</span>() {
+    <span class="c-kw">while</span> (open) {
+      build();
+      learn();
+      ship();
+    }
+  }
+}</code></pre>
+        <div class="hcc-tag">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg>
+          currently building
+        </div>
+      </div>
+      <div class="hero-stats-row">
+        <div class="mini-stat">
+          <span class="ms-num" data-target="20">0</span><span class="ms-plus">+</span>
+          <span class="ms-label">Projects</span>
+        </div>
+        <div class="mini-stat-divider"></div>
+        <div class="mini-stat">
+          <span class="ms-num" data-target="3">0</span><span class="ms-plus">+</span>
+          <span class="ms-label">Years coding</span>
+        </div>
+        <div class="mini-stat-divider"></div>
+        <div class="mini-stat">
+          <span class="ms-num">∞</span>
+          <span class="ms-label">Curiosity</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section glitch-section" id="about">
+    <div class="glitch-overlay"></div>
+    <div class="about-visual-col">
+      <div class="about-grid-art">
+        <div class="aga-block b1"><span class="aga-label">// passion</span></div>
+        <div class="aga-block b2"><span class="aga-num">20<sup>+</sup></span><span class="aga-sublabel">projects</span></div>
+        <div class="aga-block b3"><span class="aga-label">// location</span><span class="aga-city">JHB, ZA</span></div>
+        <div class="aga-block b4"><span class="aga-num">3<sup>+</sup></span><span class="aga-sublabel">years coding</span></div>
+        <div class="aga-block b5"><span class="aga-quote">"build things<br>that matter"</span></div>
+        <div class="aga-block b6">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span class="aga-sublabel">clean code</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-text-col">
+      <p class="section-label">"ABOUT ME"</p>
+      <h2 class="section-heading">The story so far</h2>
+      <p class="about-p">
+        I'm <strong>"JUNYA"</strong> — a Johannesburg-based IT student
+        with a real passion for technology. Not just using it, but understanding
+        how it's built, bending it to solve problems, and creating things people
+        actually use.
+      </p>
+      <p class="about-p">
+        Whether it's writing backend logic, debugging through the night, or
+        crafting a clean interface — I show up and get it done. I believe every
+        problem has a solution, it's just about how deep you're willing to go.
+      </p>
+      <p class="about-p">
+        I'm currently studying IT full-time and building my portfolio one project
+        at a time. Open to freelance, collab, and any opportunity to grow.
+      </p>
+      <div class="about-chips">
+        <span class="chip">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Full-stack curious
+        </span>
+        <span class="chip">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Fast learner
+        </span>
+        <span class="chip">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Team player
+        </span>
+        <span class="chip">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Detail oriented
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills-section glitch-section" id="skills">
+    <div class="glitch-overlay"></div>
+    <div class="skills-inner">
+      <div class="skills-header">
+        <p class="section-label">"TECH STACK"</p>
+        <h2 class="section-heading">What I build with</h2>
+      </div>
+
+      <!-- Marquee ticker -->
+      <div class="skills-ticker">
+        <div class="ticker-track">
+          <span class="tick-item java-tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16s-2 .5-2 2 2 2 7 2 7-1 7-2-2-2-2-2"/><path d="M8 16V8.5C8 7.1 9.1 6 10.5 6S13 7.1 13 8.5c0 1.5-1.5 2-1.5 2"/></svg> Java</span>
+          <span class="tick-sep">✦</span>
+          <span class="tick-item html-tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> HTML / CSS</span>
+          <span class="tick-sep">✦</span>
+          <span class="tick-item js-tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9v8"/><path d="M15 9v5c0 1.1-.9 2-2 2h-1"/></svg> JavaScript</span>
+          <span class="tick-sep">✦</span>
+          <span class="tick-item py-tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.5 2 7 5 7 7v2h5v1H5.5C3 10 2 11.5 2 13.5S3 17 5 17h2v-2.5c0-2.5 1.5-3.5 5-3.5s5 1 5 3.5V17h2c2 0 3-1.5 3-3.5S19 10 16.5 10H15V9h2c0 0 0-7-5-7z"/></svg> Python</span>
+          <span class="tick-sep">✦</span>
+          <span class="tick-item db-tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg> SQL</span>
+          <span class="tick-sep">✦</span>
+          <span class="tick-item git-tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg> Git</span>
+          <span class="tick-sep">✦</span>
+          <!-- duplicate for seamless loop -->
+          <span class="tick-item java-tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16s-2 .5-2 2 2 2 7 2 7-1 7-2-2-2-2-2"/><path d="M8 16V8.5C8 7.1 9.1 6 10.5 6S13 7.1 13 8.5c0 1.5-1.5 2-1.5 2"/></svg> Java</span>
+          <span class="tick-sep">✦</span>
+          <span class="tick-item html-tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> HTML / CSS</span>
+          <span class="tick-sep">✦</span>
+          <span class="tick-item js-tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9v8"/><path d="M15 9v5c0 1.1-.9 2-2 2h-1"/></svg> JavaScript</span>
+          <span class="tick-sep">✦</span>
+          <span class="tick-item py-tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.5 2 7 5 7 7v2h5v1H5.5C3 10 2 11.5 2 13.5S3 17 5 17h2v-2.5c0-2.5 1.5-3.5 5-3.5s5 1 5 3.5V17h2c2 0 3-1.5 3-3.5S19 10 16.5 10H15V9h2c0 0 0-7-5-7z"/></svg> Python</span>
+          <span class="tick-sep">✦</span>
+          <span class="tick-item db-tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg> SQL</span>
+          <span class="tick-sep">✦</span>
+          <span class="tick-item git-tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg> Git</span>
+        </div>
+      </div>
+
+      <!-- Bento skill grid -->
+      <div class="skills-bento">
+        <div class="sb-card sb-large java-card reveal">
+          <div class="sb-icon-wrap"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 16s-2 .5-2 2 2 2 7 2 7-1 7-2-2-2-2-2"/><path d="M8 16V8.5C8 7.1 9.1 6 10.5 6S13 7.1 13 8.5c0 1.5-1.5 2-1.5 2"/><path d="M11 10c0 0 3 .5 3 3s-3 3-3 3"/></svg></div>
+          <div class="sb-name">Java</div>
+          <div class="sb-bar-wrap"><div class="sb-bar" data-w="85"></div></div>
+          <div class="sb-pct">85%</div>
+          <div class="sb-desc">Primary language. OOP, algorithms, data structures.</div>
+        </div>
+
+        <div class="sb-card html-card reveal">
+          <div class="sb-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div class="sb-name">HTML / CSS</div>
+          <div class="sb-bar-wrap"><div class="sb-bar" data-w="90"></div></div>
+          <div class="sb-pct">90%</div>
+        </div>
+
+        <div class="sb-card js-card reveal">
+          <div class="sb-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9v8"/><path d="M15 9v5c0 1.1-.9 2-2 2h-1"/></svg></div>
+          <div class="sb-name">JavaScript</div>
+          <div class="sb-bar-wrap"><div class="sb-bar" data-w="75"></div></div>
+          <div class="sb-pct">75%</div>
+        </div>
+
+        <div class="sb-card py-card reveal">
+          <div class="sb-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2C6.5 2 7 5 7 7v2h5v1H5.5C3 10 2 11.5 2 13.5S3 17 5 17h2v-2.5c0-2.5 1.5-3.5 5-3.5s5 1 5 3.5V17h2c2 0 3-1.5 3-3.5S19 10 16.5 10H15V9h2c0 0 0-7-5-7z"/></svg></div>
+          <div class="sb-name">Python</div>
+          <div class="sb-bar-wrap"><div class="sb-bar" data-w="70"></div></div>
+          <div class="sb-pct">70%</div>
+        </div>
+
+        <div class="sb-card sb-wide db-card reveal">
+          <div class="sb-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <div class="sb-name">SQL / Databases</div>
+          <div class="sb-bar-wrap"><div class="sb-bar" data-w="65"></div></div>
+          <div class="sb-pct">65%</div>
+          <div class="sb-desc">Relational databases, queries, schema design.</div>
+        </div>
+
+        <div class="sb-card git-card reveal">
+          <div class="sb-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg></div>
+          <div class="sb-name">Git / GitHub</div>
+          <div class="sb-bar-wrap"><div class="sb-bar" data-w="80"></div></div>
+          <div class="sb-pct">80%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects-section glitch-section" id="projects">
+    <div class="glitch-overlay"></div>
+    <div class="projects-inner">
+      <div class="projects-header">
+        <p class="section-label">"PROJECTS"</p>
+        <h2 class="section-heading">Things I've built</h2>
+        <div class="gh-live" id="ghLive" hidden>
+          <span class="gh-live-dot"></span>
+          <span id="ghLiveText">LIVE FROM GITHUB</span>
+        </div>
+      </div>
+
+      <div class="proj-list">
+
+        <a href="https://github.com/Junyadoingthings/Phish-Guard" target="_blank" rel="noopener" class="proj-row reveal" data-num="01">
+          <div class="pr-num">01</div>
+          <div class="pr-main">
+            <h3 class="pr-title">PhishGuard</h3>
+            <p class="pr-desc">Client-side phishing analyser with a binary-rain UI, light/dark themes, and full PDF report export. Security, taken seriously.</p>
+          </div>
+          <div class="pr-meta">
+            <span class="pr-tag js-tag">JavaScript</span>
+            <span class="pr-type">Security Tool</span>
+          </div>
+          <div class="pr-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </a>
+
+        <a href="https://github.com/Junyadoingthings/Quote-Generator" target="_blank" rel="noopener" class="proj-row reveal" data-num="02">
+          <div class="pr-num">02</div>
+          <div class="pr-main">
+            <h3 class="pr-title">Quote Generator</h3>
+            <p class="pr-desc">Insurance claims quote management system for construction repair businesses — vanilla JS, jsPDF, and Tailwind CSS.</p>
+          </div>
+          <div class="pr-meta">
+            <span class="pr-tag js-tag">JavaScript</span>
+            <span class="pr-type">Business App</span>
+          </div>
+          <div class="pr-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </a>
+
+        <a href="https://github.com/Junyadoingthings/Get-Faded-Barbershop-Website" target="_blank" rel="noopener" class="proj-row reveal" data-num="03">
+          <div class="pr-num">03</div>
+          <div class="pr-main">
+            <h3 class="pr-title">Get Faded Barbershop</h3>
+            <p class="pr-desc">Full barbershop website built for a real business — booking-ready, styled to the brand, shipped to the client.</p>
+          </div>
+          <div class="pr-meta">
+            <span class="pr-tag html-tag">HTML / CSS</span>
+            <span class="pr-type">Client Website</span>
+          </div>
+          <div class="pr-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </a>
+
+        <a href="https://github.com/Junyadoingthings/Client-Booking---Portfolio-Website" target="_blank" rel="noopener" class="proj-row reveal" data-num="04">
+          <div class="pr-num">04</div>
+          <div class="pr-main">
+            <h3 class="pr-title">DOOM IT — DJ Booking Site</h3>
+            <p class="pr-desc">Single-page DJ portfolio with animated scroll reveals, a booking form, and a skate/graffiti aesthetic. Built for a paying client.</p>
+          </div>
+          <div class="pr-meta">
+            <span class="pr-tag html-tag">HTML / CSS / JS</span>
+            <span class="pr-type">Client Website</span>
+          </div>
+          <div class="pr-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </a>
+
+        <a href="https://github.com/Junyadoingthings/Prospectus-Finder" target="_blank" rel="noopener" class="proj-row reveal" data-num="05">
+          <div class="pr-num">05</div>
+          <div class="pr-main">
+            <h3 class="pr-title">Prospectus Finder</h3>
+            <p class="pr-desc">AI-powered auto-search system that finds local businesses with no websites — a lead machine for web developers.</p>
+          </div>
+          <div class="pr-meta">
+            <span class="pr-tag py-tag">AI System</span>
+            <span class="pr-type">In Development</span>
+          </div>
+          <div class="pr-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </a>
+
+        <a href="https://github.com/Junyadoingthings/CelsiusToFarhenheit" target="_blank" rel="noopener" class="proj-row reveal" data-num="06">
+          <div class="pr-num">06</div>
+          <div class="pr-main">
+            <h3 class="pr-title">Celsius Converter Pro</h3>
+            <p class="pr-desc">Console converter running multithreaded input + file threads, SQLite persistence over JDBC, and custom exception handling.</p>
+          </div>
+          <div class="pr-meta">
+            <span class="pr-tag java-tag">Java · SQLite</span>
+            <span class="pr-type">Systems App</span>
+          </div>
+          <div class="pr-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="proj-github-cta reveal">
+        <a href="https://github.com/Junyadoingthings" target="_blank" rel="noopener" class="gh-button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.4.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          VIEW ALL ON GITHUB
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="proof-section" id="proof">
+    <div class="proof-inner">
+      <p class="section-label reveal">"CLIENT WORK"</p>
+      <h2 class="section-heading reveal">Trusted by real businesses</h2>
+      <div class="proof-grid">
+        <a href="https://github.com/Junyadoingthings/Client-Booking---Portfolio-Website" target="_blank" rel="noopener" class="proof-card reveal">
+          <span class="proof-num">01</span>
+          <span class="proof-name">DOOM IT</span>
+          <span class="proof-role">Johannesburg Hip Hop DJ</span>
+          <p class="proof-desc">Full portfolio &amp; booking website — story, gallery, rate card and enquiry form. Shipped and live.</p>
+          <span class="proof-tag">PORTFOLIO + BOOKINGS</span>
+        </a>
+        <a href="https://github.com/Junyadoingthings/Get-Faded-Barbershop-Website" target="_blank" rel="noopener" class="proof-card reveal">
+          <span class="proof-num">02</span>
+          <span class="proof-name">GET FADED</span>
+          <span class="proof-role">Barbershop</span>
+          <p class="proof-desc">Complete brand-matched website for a working barbershop — built to bring walk-ins through the door.</p>
+          <span class="proof-tag">BUSINESS WEBSITE</span>
+        </a>
+        <div class="proof-card reveal">
+          <span class="proof-num">03</span>
+          <span class="proof-name">LAZARUS LUXURY COACHES</span>
+          <span class="proof-role">Cross-Border Travel</span>
+          <p class="proof-desc">Premium daily coach service between Johannesburg and Bulawayo — full booking site where passengers reserve seats in seconds.</p>
+          <span class="proof-tag">BOOKING PLATFORM · REACT</span>
+        </div>
+        <div class="proof-card reveal">
+          <span class="proof-num">04</span>
+          <span class="proof-name">DIE STASIE</span>
+          <span class="proof-role">Family Restaurant · Vaal Marina</span>
+          <p class="proof-desc">Licensed family restaurant overlooking the Vaal Dam — menu, gallery and directions site that brings families through the door.</p>
+          <span class="proof-tag">RESTAURANT WEBSITE</span>
+        </div>
+        <div class="proof-card proof-card-cta reveal">
+          <span class="proof-num">05</span>
+          <span class="proof-name">YOUR BUSINESS</span>
+          <span class="proof-role">Could be next</span>
+          <p class="proof-desc">One text is all it takes. Tell me what you do and I'll show you what your website could look like.</p>
+          <a href="https://wa.me/27691035144?text=Hi%20%22JUNYA%22%2C%20I%20saw%20your%20site%20—%20let%27s%20talk%20about%20building%20mine." target="_blank" rel="noopener" class="proof-cta-btn">START THE CONVERSATION</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES / RATES -->
+  <section class="services-section glitch-section" id="services">
+    <div class="glitch-overlay"></div>
+    <div class="services-inner">
+
+      <div class="services-header reveal">
+        <p class="section-label">"SERVICES"</p>
+        <h2 class="section-heading">What I charge</h2>
+        <p class="services-sub">Pricing is on request only — tap the package you want and it opens straight into my WhatsApp. Message ready, just hit send.</p>
+      </div>
+
+      <!-- Cards -->
+      <div class="svc-grid">
+
+        <!-- Card 1 — Monitoring & Hosting -->
+        <div class="svc-card reveal" data-id="hosting" data-name="Website Monitoring &amp; Hosting" data-price="500">
+          <div class="svc-card-inner">
+            <div class="svc-num">001</div>
+            <div class="svc-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><circle cx="12" cy="10" r="2"/><path d="M12 8v0"/></svg>
+            </div>
+            <div class="svc-badge">MONTHLY</div>
+            <h3 class="svc-title">Monitoring &amp; Hosting</h3>
+            <p class="svc-desc">I keep your site live, fast, and watched. Uptime monitoring, basic maintenance, and hosting management every month.</p>
+            <ul class="svc-features">
+              <li>Uptime monitoring</li>
+              <li>Monthly maintenance checks</li>
+              <li>Hosting management</li>
+              <li>Basic security checks</li>
+            </ul>
+            <div class="svc-price-row svc-locked">
+              <span class="svc-price-blur" aria-hidden="true">R8 88<span class="svc-per">/month</span></span>
+              <span class="svc-lock-chip">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                PRICE LOCKED
+              </span>
+            </div>
+            <button class="svc-unlock-btn">
+              <svg width="14" height="14" viewBox="0 0 32 32" fill="currentColor"><path d="M16 2.7C8.7 2.7 2.7 8.7 2.7 16c0 2.6.7 5 2 7.2L2.7 29.3l6.3-1.9c2.1 1.2 4.5 1.8 7 1.8 7.3 0 13.3-6 13.3-13.3S23.3 2.7 16 2.7zm0 24.2c-2.2 0-4.4-.6-6.2-1.7l-.4-.3-3.8 1.1 1.2-3.6-.3-.5a10.9 10.9 0 0 1-1.6-5.9C4.9 9.9 9.9 4.9 16 4.9S27.1 9.9 27.1 16 22.1 26.9 16 26.9zm6.1-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2.1-.4 0-.6-.1-.2-.8-1.8-1-2.5-.3-.6-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>
+              UNLOCK PRICE ON WHATSAPP
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2 — 3-Page Website -->
+        <div class="svc-card reveal" data-id="website" data-name="3-Page Website" data-price="2000">
+          <div class="svc-card-inner">
+            <div class="svc-num">002</div>
+            <div class="svc-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="svc-title">3-Page Website</h3>
+            <p class="svc-desc">A clean, modern website built to convert. Three pages — home, about, contact — delivered ready to go live.</p>
+            <ul class="svc-features">
+              <li>3 fully designed pages</li>
+              <li>Mobile responsive</li>
+              <li>Contact form wired up</li>
+              <li>Performance optimised</li>
+            </ul>
+            <div class="svc-price-row svc-locked">
+              <span class="svc-price-blur" aria-hidden="true">R8 888</span>
+              <span class="svc-lock-chip">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                PRICE LOCKED
+              </span>
+            </div>
+            <button class="svc-unlock-btn">
+              <svg width="14" height="14" viewBox="0 0 32 32" fill="currentColor"><path d="M16 2.7C8.7 2.7 2.7 8.7 2.7 16c0 2.6.7 5 2 7.2L2.7 29.3l6.3-1.9c2.1 1.2 4.5 1.8 7 1.8 7.3 0 13.3-6 13.3-13.3S23.3 2.7 16 2.7zm0 24.2c-2.2 0-4.4-.6-6.2-1.7l-.4-.3-3.8 1.1 1.2-3.6-.3-.5a10.9 10.9 0 0 1-1.6-5.9C4.9 9.9 9.9 4.9 16 4.9S27.1 9.9 27.1 16 22.1 26.9 16 26.9zm6.1-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2.1-.4 0-.6-.1-.2-.8-1.8-1-2.5-.3-.6-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>
+              UNLOCK PRICE ON WHATSAPP
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3 — Premium Package (limited) -->
+        <div class="svc-card svc-featured reveal" data-id="premium" data-name="Premium Web Package" data-price="3000">
+          <div class="svc-card-inner">
+            <div class="svc-num">003</div>
+            <div class="svc-badge svc-badge-hot">BEST VALUE</div>
+            <div class="svc-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 class="svc-title">Premium Web Package</h3>
+            <p class="svc-desc">Full package deal — site build, polish, and first month hosting included. The complete, premium treatment.</p>
+            <ul class="svc-features">
+              <li>Everything in 3-Page Website</li>
+              <li>Custom animations &amp; design</li>
+              <li>1 month hosting included</li>
+              <li>Priority turnaround</li>
+            </ul>
+            <div class="svc-price-row svc-locked">
+              <span class="svc-price-blur" aria-hidden="true">R8 888</span>
+              <span class="svc-lock-chip">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                PRICE LOCKED
+              </span>
+            </div>
+            <button class="svc-unlock-btn">
+              <svg width="14" height="14" viewBox="0 0 32 32" fill="currentColor"><path d="M16 2.7C8.7 2.7 2.7 8.7 2.7 16c0 2.6.7 5 2 7.2L2.7 29.3l6.3-1.9c2.1 1.2 4.5 1.8 7 1.8 7.3 0 13.3-6 13.3-13.3S23.3 2.7 16 2.7zm0 24.2c-2.2 0-4.4-.6-6.2-1.7l-.4-.3-3.8 1.1 1.2-3.6-.3-.5a10.9 10.9 0 0 1-1.6-5.9C4.9 9.9 9.9 4.9 16 4.9S27.1 9.9 27.1 16 22.1 26.9 16 26.9zm6.1-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2.1-.4 0-.6-.1-.2-.8-1.8-1-2.5-.3-.6-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>
+              UNLOCK PRICE ON WHATSAPP
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quote strip — drives contact -->
+      <div class="svc-quote-strip reveal">
+        <div class="sqs-left">
+          <span class="sqs-kicker">"EXACT PRICING"</span>
+          <p class="sqs-text">Final price depends on your project — pages, features, deadline. Text me what you need and I'll quote you properly.</p>
+        </div>
+        <a href="https://wa.me/27691035144?text=Hi%20%22JUNYA%22%2C%20I%27d%20like%20an%20exact%20quote%20for%20a%20project." target="_blank" rel="noopener" class="sqs-wa-btn">
+          <span class="sqs-wa-beam"></span>
+          <svg width="17" height="17" viewBox="0 0 32 32" fill="currentColor"><path d="M16 2.7C8.7 2.7 2.7 8.7 2.7 16c0 2.6.7 5 2 7.2L2.7 29.3l6.3-1.9c2.1 1.2 4.5 1.8 7 1.8 7.3 0 13.3-6 13.3-13.3S23.3 2.7 16 2.7zm0 24.2c-2.2 0-4.4-.6-6.2-1.7l-.4-.3-3.8 1.1 1.2-3.6-.3-.5a10.9 10.9 0 0 1-1.6-5.9C4.9 9.9 9.9 4.9 16 4.9S27.1 9.9 27.1 16 22.1 26.9 16 26.9zm6.1-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2.1-.4 0-.6-.1-.2-.8-1.8-1-2.5-.3-.6-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>
+          TEXT ME FOR A QUOTE
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT — Liquid Glass -->
+  <section class="contact-section lg-contact" id="contact">
+
+    <!-- Ambient colour orbs -->
+    <div class="lg-orbs" aria-hidden="true">
+      <div class="lg-orb lg-orb-1"></div>
+      <div class="lg-orb lg-orb-2"></div>
+      <div class="lg-orb lg-orb-3"></div>
+    </div>
+
+    <div class="lg-inner">
+
+      <div class="lg-header reveal">
+        <span class="lg-kicker">Contact</span>
+        <h2 class="lg-headline">Let's build something<br><span class="lg-grad">worth shipping.</span></h2>
+        <p class="lg-sub">Available for freelance work and collaboration. Response within 24 hours.</p>
+      </div>
+
+      <div class="lg-grid">
+
+        <!-- Left — glass contact cards -->
+        <div class="lg-cards reveal">
+          <a href="mailto:juniormazibuko18@gmail.com" class="lg-card">
+            <div class="lg-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="lg-card-body">
+              <span class="lg-card-label">Email</span>
+              <span class="lg-card-value">juniormazibuko18@gmail.com</span>
+            </div>
+            <svg class="lg-card-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+
+          <a href="https://wa.me/27691035144" target="_blank" class="lg-card">
+            <div class="lg-card-icon lg-icon-green">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
+            <div class="lg-card-body">
+              <span class="lg-card-label">WhatsApp</span>
+              <span class="lg-card-value">069 103 5144</span>
+            </div>
+            <svg class="lg-card-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+
+          <a href="https://www.instagram.com/junyaa._/" target="_blank" rel="noopener" class="lg-card">
+            <div class="lg-card-icon lg-icon-ig">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none"/></svg>
+            </div>
+            <div class="lg-card-body">
+              <span class="lg-card-label">Instagram</span>
+              <span class="lg-card-value">@junyaa._</span>
+            </div>
+            <svg class="lg-card-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+
+          <a href="https://x.com/junya_tweets" target="_blank" rel="noopener" class="lg-card">
+            <div class="lg-card-icon lg-icon-x">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></svg>
+            </div>
+            <div class="lg-card-body">
+              <span class="lg-card-label">X / Twitter</span>
+              <span class="lg-card-value">@junya_tweets</span>
+            </div>
+            <svg class="lg-card-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+
+          <div class="lg-card lg-card-static">
+            <div class="lg-card-icon lg-icon-blue">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="lg-card-body">
+              <span class="lg-card-label">Location</span>
+              <span class="lg-card-value">Johannesburg, South Africa</span>
+            </div>
+          </div>
+
+          <div class="lg-status-pill">
+            <span class="lg-status-dot"></span>
+            Available for new projects
+          </div>
+        </div>
+
+        <!-- Right — glass form panel -->
+        <div class="lg-form-panel reveal">
+          <form id="contactForm" class="lg-form">
+            <div class="lg-form-row">
+              <div class="lg-field">
+                <label class="lg-label" for="name">Name</label>
+                <input type="text" id="name" placeholder="Your name" required class="lg-input" />
+              </div>
+              <div class="lg-field">
+                <label class="lg-label" for="email">Email</label>
+                <input type="email" id="email" placeholder="you@example.com" required class="lg-input" />
+              </div>
+            </div>
+            <div class="lg-field">
+              <label class="lg-label" for="subject">Subject</label>
+              <input type="text" id="subject" placeholder="What's this about?" class="lg-input" />
+            </div>
+            <div class="lg-field">
+              <label class="lg-label" for="message">Message</label>
+              <textarea id="message" rows="5" placeholder="Tell me about your project…" required class="lg-input lg-textarea"></textarea>
+            </div>
+            <button type="submit" class="lg-submit">
+              Send Message
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-name">"JUNYA"</span>
+      <span class="footer-sep">—</span>
+      <span class="footer-tag">Johannesburg, ZA</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-copy">Built by hand, 2026</span>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FAB -->
+  <a href="https://wa.me/27691035144" target="_blank" rel="noopener" class="wa-fab" aria-label="Chat on WhatsApp">
+    <span class="wa-fab-beam"></span>
+    <span class="wa-fab-ring"></span>
+    <span class="wa-fab-ring wa-fab-ring-2"></span>
+    <svg width="26" height="26" viewBox="0 0 32 32" fill="currentColor"><path d="M16 2.7C8.7 2.7 2.7 8.7 2.7 16c0 2.6.7 5 2 7.2L2.7 29.3l6.3-1.9c2.1 1.2 4.5 1.8 7 1.8 7.3 0 13.3-6 13.3-13.3S23.3 2.7 16 2.7zm0 24.2c-2.2 0-4.4-.6-6.2-1.7l-.4-.3-3.8 1.1 1.2-3.6-.3-.5a10.9 10.9 0 0 1-1.6-5.9C4.9 9.9 9.9 4.9 16 4.9S27.1 9.9 27.1 16 22.1 26.9 16 26.9zm6.1-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2.1-.4 0-.6-.1-.2-.8-1.8-1-2.5-.3-.6-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>
+    <span class="wa-fab-label">Chat with me</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
