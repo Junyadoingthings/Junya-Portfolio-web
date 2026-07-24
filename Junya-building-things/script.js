@@ -278,11 +278,11 @@
 (function () {
   const el = document.getElementById('typewriter');
   const phrases = [
-    'IT Student & Developer.',
-    'Problem solver.',
-    'Johannesburg, ZA.',
-    'Always building.',
-    'Open to work.',
+    'Websites that win clients.',
+    'AI chatbots that never sleep.',
+    'Systems that run your business.',
+    'Hosting & monitoring, handled.',
+    'Clear pricing. Real results.',
   ];
   let pi = 0, ci = 0, del = false;
 
@@ -389,7 +389,7 @@
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           name, email, message,
-          _subject: subject + ' — from ' + name + ' (junya site)',
+          _subject: subject + ' — from ' + name + ' (JUNYA WEB site)',
         }),
       });
       if (!res.ok) throw new Error('send failed');
@@ -412,7 +412,7 @@
   const WA_NUMBER = '27691035144';
 
   function unlockUrl(pkgName) {
-    const msg = `Hi "JUNYA",\n\nI'm interested in the "${pkgName}" package. Please unlock the pricing for me and tell me what's included.`;
+    const msg = `Hi JUNYA WEB,\n\nI want the "${pkgName}" package — let's get started. Please send me the next steps.`;
     return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
   }
 
@@ -554,7 +554,8 @@
     { label: 'Go to Skills',     hintTxt: '02', run: () => scrollToId('skills') },
     { label: 'Go to Projects',   hintTxt: '03', run: () => scrollToId('projects') },
     { label: 'Go to Client Work',hintTxt: '03b',run: () => scrollToId('proof') },
-    { label: 'Go to Services',   hintTxt: '04', run: () => scrollToId('services') },
+    { label: 'Go to Pricing',    hintTxt: '04', run: () => scrollToId('services') },
+    { label: 'Go to Reviews',    hintTxt: '05', run: () => scrollToId('reviews') },
     { label: 'Go to Contact',    hintTxt: '05', run: () => scrollToId('contact') },
     { label: 'Open GitHub',      hintTxt: '↗',  run: () => window.open('https://github.com/Junyadoingthings', '_blank') },
     { label: 'Open Instagram',   hintTxt: '↗',  run: () => window.open('https://www.instagram.com/junyaa._/', '_blank') },
@@ -631,3 +632,27 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').catch(() => {});
   });
 }
+
+/* ── PROJECT PEEK — cursor-following site preview ── */
+(function () {
+  const peek = document.getElementById('projPeek');
+  if (!peek || window.matchMedia('(hover: none)').matches) return;
+  const img = peek.querySelector('img');
+  let raf;
+
+  document.querySelectorAll('.proj-row[data-shot]').forEach(row => {
+    row.addEventListener('mouseenter', () => {
+      img.src = row.dataset.shot;
+      peek.classList.add('on');
+    });
+    row.addEventListener('mouseleave', () => peek.classList.remove('on'));
+    row.addEventListener('mousemove', e => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const px = Math.min(e.clientX + 28, window.innerWidth - 350);
+        const py = Math.max(16, Math.min(e.clientY - 120, window.innerHeight - 280));
+        peek.style.transform = `translate(${px}px, ${py}px)`;
+      });
+    });
+  });
+})();

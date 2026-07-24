@@ -1,5 +1,5 @@
 /* Simple cache-first service worker */
-const CACHE = 'junya-v2';
+const CACHE = 'junya-v3';
 const ASSETS = [
   '.',
   'index.html',

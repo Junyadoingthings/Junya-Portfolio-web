@@ -1779,7 +1779,7 @@ a.lg-card:hover .lg-card-chevron {
 
 /* ── Off-White diagonal tape strip on hero ── */
 .hero::after {
-  content: '"JUNYA BUILDING THINGS" ✦ "JOHANNESBURG, ZA" ✦ "IT STUDENT" ✦ "DEVELOPER" ✦ ';
+  content: '"JUNYA WEB" ✦ "WEBSITES" ✦ "AI CHATBOTS" ✦ "BUSINESS SYSTEMS" ✦ "JOHANNESBURG, ZA" ✦ ';
   position: absolute;
   bottom: 1rem;
   left: -5%;
@@ -3247,3 +3247,569 @@ body, .navbar, .svc-card-inner, .proof-card, .footer {
   background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
   color: #fff;
 }
+
+/* ════════════════════════════════════════════════
+   SITE PREVIEWS — thermal browser windows
+   ════════════════════════════════════════════════ */
+
+/* Browser-window frame docked flush to the top of each proof card */
+.proof-shot {
+  margin: -1.8rem -1.6rem 1.1rem;
+  border-bottom: 2px solid transparent;
+  border-image: var(--t-grad) 1;
+  overflow: hidden;
+}
+
+.ps-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 12px;
+  background: #0b0716;
+}
+.ps-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-dot.d1 { background: #3B0F8F; }
+.ps-dot.d2 { background: #E0218A; }
+.ps-dot.d3 { background: #FF6B1A; }
+.ps-domain {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.55);
+  text-transform: lowercase;
+  margin-left: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ps-live {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #FFC53F;
+  animation: fsBlink 1.8s steps(2) infinite;
+  flex-shrink: 0;
+}
+
+.ps-img {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #0b0716;
+}
+.ps-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  filter: saturate(1.05);
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.proof-card:hover .ps-img img {
+  transform: scale(1.07);
+}
+/* scanlines + sweeping beam over the preview */
+.ps-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(7,5,18,0.09) 3px,
+    rgba(7,5,18,0.09) 4px
+  );
+}
+.ps-scan::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  top: -25%;
+  height: 20%;
+  background: linear-gradient(180deg, transparent, rgba(255,197,63,0.14), transparent);
+  animation: fsScan 4.5s ease-in-out infinite;
+}
+
+/* proof cards need the frame to clip cleanly */
+.proof-card { overflow: hidden; }
+
+/* ── Cursor-following project peek ── */
+.proj-peek {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 60;
+  width: 330px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-9999px, -9999px);
+  transition: opacity 0.25s ease;
+  border: 2px solid transparent;
+  border-image: var(--t-grad) 1;
+  background: #0b0716;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.55), 0 0 40px rgba(224,33,138,0.25);
+}
+.proj-peek.on { opacity: 1; }
+.pp-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  background: #0b0716;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.pp-label {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(255,197,63,0.7);
+}
+.proj-peek img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+}
+@media (max-width: 980px), (hover: none) {
+  .proj-peek { display: none; }
+}
+
+/* ════════════════════════════════════════════════
+   JUNYA WEB — rebrand sizing, pricing, reviews
+   ════════════════════════════════════════════════ */
+
+/* longer brand name needs tighter clamps */
+.name-quoted {
+  font-size: clamp(2.6rem, 7.6vw, 5.4rem);
+  letter-spacing: -1.5px;
+}
+.su-name {
+  font-size: clamp(2.8rem, 10.5vw, 7.2rem);
+  letter-spacing: -2px;
+}
+.logo-word-main { font-size: 1.05rem; }
+
+/* open pricing */
+.svc-price-row {
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.svc-price-quote {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--t-hot);
+}
+
+/* the select button is text-only now */
+.svc-unlock-btn {
+  font-size: 0.66rem;
+  letter-spacing: 2.5px;
+}
+
+/* AI & systems row — two wide cards */
+.svc-grid-ai {
+  grid-template-columns: 1fr 1fr;
+  margin-top: 1.2rem;
+}
+@media (max-width: 860px) {
+  .svc-grid-ai { grid-template-columns: 1fr; }
+}
+
+/* ── Reviews ── */
+.reviews-section {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 5%;
+  background: var(--bg);
+  border-top: 2px solid transparent !important;
+  border-image: var(--t-grad) 1 !important;
+}
+.reviews-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.8rem 1.6rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--t-mid), var(--t-hot)) 1;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;
+}
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(255,107,26,0.22), 0 0 60px rgba(224,33,138,0.12);
+}
+.review-stars {
+  font-size: 1rem;
+  letter-spacing: 4px;
+  color: var(--t-peak);
+  text-shadow: 0 0 12px rgba(255,197,63,0.5);
+}
+.review-text {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--muted);
+  flex: 1;
+}
+.review-who {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  border-top: 1.5px solid var(--border);
+  padding-top: 0.9rem;
+}
+.review-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.review-biz {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--t-hot);
+}
+@media (max-width: 700px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Accessibility polish ── */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--t-peak);
+  outline-offset: 3px;
+}
+.svc-desc, .proof-desc { color: var(--muted); }
+
+/* ════════════════════════════════════════════════
+   SHOWCASE — Apple-clean client work
+   ════════════════════════════════════════════════ */
+.showcase-section {
+  position: relative;
+  z-index: 1;
+  padding: 7rem 5%;
+  background: linear-gradient(180deg, #0a0714 0%, #0d0919 55%, #0a0714 100%);
+}
+.showcase-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* header — centered, SF-style restraint */
+.sc-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.sc-kicker {
+  display: inline-block;
+  font-family: var(--body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 0.4rem 1.1rem;
+  border-radius: 100px;
+  margin-bottom: 1.3rem;
+}
+.sc-headline {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  color: #f5f5f7;
+  letter-spacing: -1.4px;
+  line-height: 1.1;
+  margin-bottom: 0.8rem;
+}
+.sc-grad {
+  background: linear-gradient(92deg, #FFC53F 0%, #FF6B1A 45%, #E0218A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.sc-sub {
+  font-family: var(--body);
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* grid of floating windows */
+.sc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+}
+
+.sc-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 24px;
+  overflow: hidden;
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 20px 50px rgba(0,0,0,0.35);
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s, border-color 0.3s;
+}
+.sc-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 40px 90px rgba(0,0,0,0.55);
+}
+
+/* the inset browser window */
+.sc-window {
+  margin: 14px 14px 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: #15121e;
+}
+.sc-winbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.sc-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.16);
+}
+.sc-winbar em {
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.4);
+  margin: 0 auto;
+  transform: translateX(-13px); /* optically centre against the dots */
+}
+.sc-imgwrap {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+.sc-imgwrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.sc-card:hover .sc-imgwrap img {
+  transform: scale(1.045);
+}
+
+/* meta panel */
+.sc-meta {
+  padding: 1.3rem 1.5rem 1.5rem;
+}
+.sc-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.45rem;
+}
+.sc-title-row h3 {
+  font-family: var(--body);
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: #f5f5f7;
+}
+.sc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.sc-pill-live { color: #FFC53F; border-color: rgba(255,197,63,0.3); background: rgba(255,197,63,0.08); }
+.sc-pill-live i {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #FFC53F;
+  box-shadow: 0 0 8px rgba(255,197,63,0.8);
+  animation: lgPulse 2.2s ease-in-out infinite;
+}
+.sc-meta p {
+  font-family: var(--body);
+  font-size: 0.87rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 0.9rem;
+}
+.sc-visit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--t-hot);
+}
+.sc-visit svg { transition: transform 0.3s; }
+.sc-card:hover .sc-visit svg { transform: translate(2px, -2px); }
+
+/* CTA bar */
+.sc-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2.2rem;
+  padding: 1.4rem 1.8rem;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 100px;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  flex-wrap: wrap;
+}
+.sc-cta p {
+  font-family: var(--body);
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+}
+.sc-cta p strong { color: #f5f5f7; font-weight: 600; }
+.sc-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.6rem;
+  background: linear-gradient(135deg, #FF6B1A 0%, #E0218A 100%);
+  color: #fff;
+  font-family: var(--body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 100px;
+  box-shadow: 0 8px 28px rgba(224,33,138,0.4);
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;
+  white-space: nowrap;
+}
+.sc-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(224,33,138,0.55);
+}
+.sc-cta-btn svg { transition: transform 0.25s; }
+.sc-cta-btn:hover svg { transform: translateX(3px); }
+
+@media (max-width: 860px) {
+  .sc-grid { grid-template-columns: 1fr; }
+  .sc-cta { justify-content: center; text-align: center; }
+}
+
+/* ════════════════════════════════════════════════
+   SPECIAL / SALE PRICING — thermal
+   ════════════════════════════════════════════════ */
+.special-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 100px;
+  background: linear-gradient(135deg, rgba(255,107,26,0.14), rgba(224,33,138,0.14));
+  border: 1px solid rgba(255,107,26,0.4);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--t-peak);
+  text-transform: uppercase;
+}
+.special-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--t-hot);
+  box-shadow: 0 0 10px rgba(255,107,26,0.9);
+  animation: lgPulse 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* struck-through old price */
+.svc-price-was {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--muted2);
+  text-decoration: line-through;
+  text-decoration-color: var(--t-hot);
+  text-decoration-thickness: 2px;
+  opacity: 0.75;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  align-self: center;
+}
+
+/* SAVE badge — heat gradient */
+.svc-save {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--t-hot), var(--t-mid));
+  color: #fff;
+  padding: 0.22rem 0.6rem;
+  border-radius: 4px;
+  align-self: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 12px rgba(224,33,138,0.35);
+}
+.svc-featured .svc-save {
+  background: var(--t-peak);
+  color: #1a1233;
+  text-shadow: none;
+}
+
+/* keep sale prices tidy on one line where they fit */
+.svc-price-row { row-gap: 0.35rem; }
